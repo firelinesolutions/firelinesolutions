@@ -1,0 +1,103 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@keyframes float {
+  0% { transform: translateY(0px); }
+  50% { transform: translateY(-20px); }
+  100% { transform: translateY(0px); }
+}
+
+@keyframes pulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+  100% { transform: scale(1); }
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-float {
+  animation: float 6s ease-in-out infinite;
+}
+
+.animate-pulse-slow {
+  animation: pulse 4s ease-in-out infinite;
+}
+
+.slide-in {
+  animation: slideIn 0.6s ease-out forwards;
+}
+
+.gradient-text {
+  background: linear-gradient(135deg, #FF8C00 0%, #FFA500 50%, #FFD700 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.service-card {
+  transition: all 0.3s ease;
+  background: linear-gradient(145deg, #ffffff 0%, #f8f9fa 100%);
+}
+
+.service-card:hover {
+  transform: translateY(-10px);
+  background: linear-gradient(145deg, #fff5e6 0%, #fff 100%);
+}
+
+.service-icon {
+  transition: all 0.3s ease;
+}
+
+.service-card:hover .service-icon {
+  transform: scale(1.1) rotate(5deg);
+}
+
+.hero-gradient {
+  background: linear-gradient(135deg, rgba(255,140,0,0.1) 0%, rgba(255,165,0,0.05) 100%);
+}
+
+/* Add these styles to customize the date picker */
+.react-datepicker {
+  font-family: inherit;
+  border-color: #e5e7eb;
+}
+
+.react-datepicker__header {
+  background-color: white;
+  border-bottom-color: #e5e7eb;
+}
+
+.react-datepicker__day--selected {
+  background-color: #f97316 !important;
+}
+
+.react-datepicker__day--keyboard-selected {
+  background-color: #fdba74 !important;
+}
+
+.react-datepicker__day:hover {
+  background-color: #fed7aa !important;
+}
+
+.react-datepicker__day--disabled {
+  color: #d1d5db !important;
+  cursor: not-allowed !important;
+}
+
+.react-datepicker__navigation:hover {
+  background-color: #f3f4f6;
+}
+
+.react-datepicker__day--outside-month {
+  visibility: hidden;
+}
