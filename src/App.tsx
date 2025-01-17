@@ -385,7 +385,7 @@ function App() {
 
       {/* Contact Form Modal */}
       {showForm && (
-        <div className="fixed inset-0 bg-black bg-opacity-50 backdrop-blur-sm z-50 flex items-center justify-center p-4">
+        <div className="fixed inset-0 bg-black bg-opacity-50 backdrop-blur-sm z-[60] flex items-center justify-center p-4">
           <div className="bg-gray-50 rounded-2xl p-4 max-w-[350px] w-full relative">
             <button 
               onClick={() => {
@@ -546,7 +546,7 @@ function App() {
       )}
 
       {showConfirmation && (
-        <div className="fixed inset-0 bg-black bg-opacity-50 backdrop-blur-sm z-50 flex items-center justify-center p-4">
+        <div className="fixed inset-0 bg-black bg-opacity-50 backdrop-blur-sm z-[60] flex items-center justify-center p-4">
           <div className="bg-gray-50 rounded-2xl p-6 max-w-[350px] w-full relative">
             <button 
               onClick={() => {
