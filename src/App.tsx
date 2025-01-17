@@ -231,7 +231,7 @@ function App() {
               </a>
               <button 
                 onClick={() => setShowForm(true)}
-                className="bg-gradient-to-r from-orange-500 to-orange-400 text-white px-6 py-2 rounded-full hover:from-orange-600 hover:to-orange-500 transition-all transform hover:scale-105 shadow-lg"
+                className="bg-gradient-to-r from-orange-500 to-orange-400 text-white px-6 py-2 rounded-full hover:from-orange-600 hover:to-orange-500 transition-all transform hover:scale-105 shadow-lg inline-flex items-center cursor-pointer"
               >
                 Get Started
               </button>
@@ -270,7 +270,7 @@ function App() {
                 setShowForm(true);
                 setIsMenuOpen(false);
               }}
-              className="w-full mt-4 bg-gradient-to-r from-orange-500 to-orange-400 text-white px-6 py-3 rounded-full"
+              className="w-full mt-4 bg-gradient-to-r from-orange-500 to-orange-400 text-white px-6 py-3 rounded-full cursor-pointer"
             >
               Get Started
             </button>
@@ -279,9 +279,9 @@ function App() {
       )}
 
       {/* Hero Section */}
-      <section className="pt-32 pb-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto hero-gradient">
+      <section className="pt-32 pb-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto hero-gradient relative">
         <div className="grid md:grid-cols-2 gap-12 items-center">
-          <div className="space-y-8">
+          <div className="space-y-8 relative">
             <h1 className="text-6xl font-bold leading-tight">
               Creating Digital
               <span className="gradient-text block">Experiences</span>
@@ -292,13 +292,18 @@ function App() {
               From stunning websites to strategic branding, every project receives 
               dedicated attention to drive real results.
             </p>
-            <button 
-              onClick={() => setShowForm(true)}
-              className="group bg-gradient-to-r from-orange-500 to-orange-400 text-white px-8 py-4 rounded-full text-lg font-medium hover:from-orange-600 hover:to-orange-500 transition-all transform hover:scale-105 shadow-lg inline-flex items-center"
-            >
-              Start Your Project
-              <ArrowRight className="ml-2 group-hover:translate-x-2 transition-transform" />
-            </button>
+            <div className="relative z-[45]">
+              <button 
+                onClick={() => {
+                  setShowForm(true);
+                  setIsMenuOpen(false);
+                }}
+                className="group bg-gradient-to-r from-orange-500 to-orange-400 text-white px-8 py-4 rounded-full text-lg font-medium hover:from-orange-600 hover:to-orange-500 transition-all transform hover:scale-105 shadow-lg inline-flex items-center cursor-pointer"
+              >
+                Start Your Project
+                <ArrowRight className="ml-2 group-hover:translate-x-2 transition-transform" />
+              </button>
+            </div>
           </div>
           <div className="relative animate-float">
             <div className="absolute -z-10 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-gradient-to-r from-orange-200 to-yellow-100 rounded-full blur-3xl opacity-30"></div>
@@ -629,7 +634,7 @@ function App() {
               </div>
               <button 
                 onClick={() => setShowForm(true)}
-                className="mt-6 bg-gradient-to-r from-orange-500 to-orange-400 text-white px-6 py-3 rounded-full hover:from-orange-600 hover:to-orange-500 transition-all transform hover:scale-105 shadow-lg inline-flex items-center"
+                className="mt-6 bg-gradient-to-r from-orange-500 to-orange-400 text-white px-6 py-3 rounded-full hover:from-orange-600 hover:to-orange-500 transition-all transform hover:scale-105 shadow-lg inline-flex items-center cursor-pointer"
               >
                 Start a Project
                 <ChevronRight className="ml-2" />
