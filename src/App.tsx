@@ -1,8 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Menu, X, Monitor, Palette, TrendingUp, ChevronRight, Star, ArrowRight, Mail, Phone, CheckCircle } from 'lucide-react';
 import { Logo } from './Logo';
-import DatePicker from 'react-datepicker';
-import "react-datepicker/dist/react-datepicker.css";
 
 const LOGO_BASE64 = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMAAAADACAYAAABS3GwHAAAACXBIWXMAAAsTAAALEwEAmpwYAAAF0WlUWHRYTUw6Y29tLmFkb2JlLnhtcAAAAAAAPD94cGFja2V0IGJlZ2luPSLvu78iIGlkPSJXNU0wTXBDZWhpSHpyZVN6TlRjemtjOWQiPz4gPHg6eG1wbWV0YSB4bWxuczp4PSJhZG9iZTpuczptZXRhLyIgeDp4bXB0az0iQWRvYmUgWE1QIENvcmUgNy4yLWMwMDAgNzkuMWI2NWE3OWI0LCAyMDIyLzA2LzEzLTIyOjAxOjAxICAgICAgICAiPiA8cmRmOlJERiB4bWxuczpyZGY9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkvMDIvMjItcmRmLXN5bnRheC1ucyMiPiA8cmRmOkRlc2NyaXB0aW9uIHJkZjphYm91dD0iIiB4bWxuczp4bXA9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC8iIHhtbG5zOnhtcE1NPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvbW0vIiB4bWxuczpzdEV2dD0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL3NUeXBlL1Jlc291cmNlRXZlbnQjIiB4bWxuczpkYz0iaHR0cDovL3B1cmwub3JnL2RjL2VsZW1lbnRzLzEuMS8iIHhtbG5zOnBob3Rvc2hvcD0iaHR0cDovL25zLmFkb2JlLmNvbS9waG90b3Nob3AvMS4wLyIgeG1wOkNyZWF0b3JUb29sPSJBZG9iZSBQaG90b3Nob3AgMjQuMCAoTWFjaW50b3NoKSIgeG1wOkNyZWF0ZURhdGU9IjIwMjQtMDMtMTlUMTQ6NDc6NDctMDQ6MDAiIHhtcDpNZXRhZGF0YURhdGU9IjIwMjQtMDMtMTlUMTQ6NDc6NDctMDQ6MDAiIHhtcDpNb2RpZnlEYXRlPSIyMDI0LTAzLTE5VDE0OjQ3OjQ3LTA0OjAwIiB4bXBNTTpJbnN0YW5jZUlEPSJ4bXAuaWlkOjY5ZDEyZjE5LTJlMDctNDI4NC1hMzE1LTNkYjM4ZjM0ZjM0ZiIgeG1wTU06RG9jdW1lbnRJRD0iYWRvYmU6ZG9jaWQ6cGhvdG9zaG9wOjY5ZDEyZjE5LTJlMDctNDI4NC1hMzE1LTNkYjM4ZjM0ZjM0ZiIgeG1wTU06T3JpZ2luYWxEb2N1bWVudElEPSJ4bXAuZGlkOjY5ZDEyZjE5LTJlMDctNDI4NC1hMzE1LTNkYjM4ZjM0ZjM0ZiIgZGM6Zm9ybWF0PSJpbWFnZS9wbmciIHBob3Rvc2hvcDpDb2xvck1vZGU9IjMiPiA8eG1wTU06SGlzdG9yeT4gPHJkZjpTZXE+IDxyZGY6bGkgc3RFdnQ6YWN0aW9uPSJjcmVhdGVkIiBzdEV2dDppbnN0YW5jZUlEPSJ4bXAuaWlkOjY5ZDEyZjE5LTJlMDctNDI4NC1hMzE1LTNkYjM4ZjM0ZjM0ZiIgc3RFdnQ6d2hlbj0iMjAyNC0wMy0xOVQxNDo0Nzo0Ny0wNDowMCIgc3RFdnQ6c29mdHdhcmVBZ2VudD0iQWRvYmUgUGhvdG9zaG9wIDI0LjAgKE1hY2ludG9zaCkiLz4gPC9yZGY6U2VxPiA8L3htcE1NOkhpc3Rvcnk+IDwvcmRmOkRlc2NyaXB0aW9uPiA8L3JkZjpSREY+IDwveDp4bXBtZXRhPiA8P3hwYWNrZXQgZW5kPSJyIj8+7QGG8wAABFhJREFUeJzt3U1y2zYYgGHAzqTL9AjxEbLPMXqUHiF3yKqTI/QI6RFcZxXHkm3x+wFIQO/zTLuYjE1R4EsABCjw2+12+wUQ9fvWDQDYEgEgiwCQRQDIIgBkEQCyCABZBIAsAkAWASCLAJBFAMgiAGQRALIIAFkEgCwCQBYBIIsAkEUAyPoP1PKqgXJGG1QAAAAASUVORK5CYII=";
 
@@ -13,10 +11,6 @@ function App() {
     services: false,
     testimonials: false
   });
-  const [formStep, setFormStep] = useState(1);
-  const [showConfirmation, setShowConfirmation] = useState(false);
-  const [submittedData, setSubmittedData] = useState<any>(null);
-  const [selectedDate, setSelectedDate] = useState<Date | null>(null);
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -24,6 +18,8 @@ function App() {
     message: '',
     services: [] as string[]
   });
+  const [submittedData, setSubmittedData] = useState(null);
+  const [showConfirmation, setShowConfirmation] = useState(false);
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -88,11 +84,6 @@ function App() {
     { id: 'marketing', label: 'Marketing Consulting' }
   ];
 
-  const handleNext = (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-    setFormStep(2);
-  };
-
   const handleFirstStepChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;
     setFormData(prev => ({
@@ -120,11 +111,6 @@ function App() {
       phone: formData.phone,
       message: formData.message,
       services: formData.services.join(', '),
-      preferred_date: selectedDate ? selectedDate.toLocaleDateString('en-US', { 
-        year: 'numeric', 
-        month: 'long', 
-        day: 'numeric' 
-      }) : '',
       preferred_time: e.currentTarget.querySelector<HTMLSelectElement>('select[name="preferred_time"]')?.value || '',
       timestamp: new Date().toISOString(),
       source: 'Website Contact Form'
@@ -151,6 +137,7 @@ function App() {
 
       setSubmittedData(data);
       setShowConfirmation(true);
+      setShowForm(false);
       
     } catch (error) {
       console.error('Error submitting form:', error);
@@ -162,52 +149,10 @@ function App() {
     }
   };
 
-  const getNextAvailableWeekday = () => {
-    const today = new Date();
-    const tomorrow = new Date(today);
-    tomorrow.setDate(tomorrow.getDate() + 1);
-    
-    // Keep adding days until we hit a weekday (1-5, Monday-Friday)
-    while (tomorrow.getDay() === 0 || tomorrow.getDay() === 6) {
-      tomorrow.setDate(tomorrow.getDate() + 1);
-    }
-    
-    // Format date as YYYY-MM-DD
-    const year = tomorrow.getFullYear();
-    const month = String(tomorrow.getMonth() + 1).padStart(2, '0');
-    const day = String(tomorrow.getDate()).padStart(2, '0');
-    
-    return `${year}-${month}-${day}`;
-  };
-
-  const getMaxDate = () => {
-    const maxDate = new Date();
-    maxDate.setMonth(maxDate.getMonth() + 3);
-    return maxDate.toISOString().split('T')[0];
-  };
-
-  const isWeekday = (dateString: string) => {
-    const date = new Date(dateString);
-    const day = date.getDay();
-    return day !== 0 && day !== 6;
-  };
-
-  const isValidDate = (dateString: string) => {
-    const date = new Date(dateString);
-    const day = date.getDay();
-    // Return false for Saturday (6) and Sunday (0)
-    return day !== 0 && day !== 6;
-  };
-
-  const filterWeekdays = (date: Date) => {
-    const day = date.getDay();
-    return day !== 0 && day !== 6;
-  };
-
   return (
     <div className="min-h-screen bg-gray-50">
       {/* Navigation */}
-      <nav className="fixed w-full bg-gray-50/90 backdrop-blur-sm z-50 border-b border-gray-100">
+      <nav className="fixed w-full bg-white/90 backdrop-blur-sm z-50 border-b border-gray-100">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between h-20 items-center">
             <div className="flex items-center">
@@ -249,7 +194,7 @@ function App() {
 
       {/* Mobile Menu */}
       {isMenuOpen && (
-        <div className="md:hidden fixed inset-0 z-40 bg-gray-50/80 backdrop-blur-md pt-20">
+        <div className="md:hidden fixed inset-0 z-40 bg-white/90 backdrop-blur-md pt-20">
           <div className="px-4 pt-2 pb-3 space-y-3">
             <a 
               href="#services" 
@@ -391,199 +336,112 @@ function App() {
       {/* Contact Form Modal */}
       {showForm && (
         <div className="fixed inset-0 bg-black bg-opacity-50 backdrop-blur-sm z-[60] flex items-center justify-center p-4">
-          <div className="bg-gray-50 rounded-2xl p-4 max-w-[350px] w-full relative">
+          <div className="bg-gray-50 rounded-2xl p-3 max-w-[350px] w-full relative">
             <button 
               onClick={() => {
                 setShowForm(false);
-                setFormStep(1);
               }}
               className="absolute top-3 right-3 hover:bg-gray-100 rounded-full p-1"
             >
               <X className="w-5 h-5 text-gray-400 hover:text-gray-600" />
             </button>
 
-            {formStep === 1 ? (
-              <>
-                <h3 className="text-lg font-bold mb-3 gradient-text">Let's Start Your Project</h3>
-                <form onSubmit={handleNext} className="space-y-2">
-                  <div>
-                    <label className="block text-sm font-medium text-gray-700 mb-1">Name</label>
-                    <input 
-                      type="text"
-                      name="name"
-                      value={formData.name}
-                      onChange={handleFirstStepChange}
-                      className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-orange-500"
-                      placeholder="Your name"
-                      required
-                    />
-                  </div>
-                  <div>
-                    <label className="block text-sm font-medium text-gray-700 mb-1">Email</label>
-                    <input 
-                      type="email"
-                      name="email"
-                      value={formData.email}
-                      onChange={handleFirstStepChange}
-                      className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-orange-500"
-                      placeholder="your@email.com"
-                      required
-                    />
-                  </div>
-                  <div>
-                    <label className="block text-sm font-medium text-gray-700 mb-1">Phone</label>
-                    <input 
-                      type="tel"
-                      name="phone"
-                      value={formData.phone}
-                      onChange={handleFirstStepChange}
-                      className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-orange-500"
-                      placeholder="Your phone"
-                    />
-                  </div>
-                  <div>
-                    <label className="block text-sm font-medium text-gray-700 mb-1">Services Interested In</label>
-                    <div className="grid grid-cols-2 gap-2">
-                      {serviceOptions.map((service) => (
-                        <label 
-                          key={service.id}
-                          className="flex items-center p-3 border border-gray-200 rounded-lg hover:border-orange-500 cursor-pointer"
-                        >
-                          <input 
-                            type="checkbox"
-                            name="services"
-                            value={service.id}
-                            checked={formData.services.includes(service.id)}
-                            onChange={handleServiceChange}
-                            className="h-4 w-4 text-orange-500 border-gray-300 rounded focus:ring-orange-500 mr-2"
-                          />
-                          <span className="text-sm text-gray-700">{service.label}</span>
-                        </label>
-                      ))}
-                    </div>
-                  </div>
-                  <div>
-                    <label className="block text-sm font-medium text-gray-700 mb-1">Message</label>
-                    <textarea 
-                      name="message"
-                      value={formData.message}
-                      onChange={handleFirstStepChange}
-                      className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-orange-500 h-24 resize-none"
-                      placeholder="Tell us about your project"
-                      required
-                    ></textarea>
-                  </div>
-                  <button 
-                    type="submit"
-                    className="w-full bg-gradient-to-r from-orange-500 to-orange-400 text-white px-6 py-3 rounded-lg hover:from-orange-600 hover:to-orange-500 transition-all transform hover:scale-105 font-medium"
-                  >
-                    Next Step
-                  </button>
-                </form>
-              </>
-            ) : (
-              <>
-                <h3 className="text-lg font-bold mb-3 gradient-text">Schedule a Call</h3>
-                <form onSubmit={handleSubmit} className="space-y-2">
-                  <div>
-                    <label className="block text-sm font-medium text-gray-700 mb-1">Preferred Date</label>
-                    <DatePicker
-                      name="preferred_date"
-                      selected={selectedDate}
-                      onChange={(date: Date) => {
-                        setSelectedDate(date);
-                        console.log('Selected date:', date);
-                      }}
-                      minDate={new Date()}
-                      maxDate={new Date().setMonth(new Date().getMonth() + 3)}
-                      filterDate={filterWeekdays}
-                      placeholderText="Select a date"
-                      dateFormat="MMMM d, yyyy"
-                      className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-orange-500"
-                      required
-                      excludeDates={[new Date()]}
-                      showPopperArrow={false}
-                      calendarClassName="rounded-lg shadow-lg border border-gray-100"
-                      popperClassName="z-[1000]"
-                      popperPlacement="bottom-start"
-                    />
-                  </div>
-                  <div>
-                    <label className="block text-sm font-medium text-gray-700 mb-1">Preferred Time</label>
-                    <select
-                      name="preferred_time"
-                      className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-orange-500"
-                      required
+            <h3 className="text-lg font-bold mb-2 gradient-text">Let's Start Your Project</h3>
+            <form onSubmit={handleSubmit} className="space-y-1.5">
+              <div>
+                <label className="block text-sm font-medium text-gray-700 mb-1">Name</label>
+                <input 
+                  type="text"
+                  name="name"
+                  value={formData.name}
+                  onChange={handleFirstStepChange}
+                  className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-orange-500"
+                  placeholder="Your name"
+                  required
+                />
+              </div>
+              <div>
+                <label className="block text-sm font-medium text-gray-700 mb-1">Email</label>
+                <input 
+                  type="email"
+                  name="email"
+                  value={formData.email}
+                  onChange={handleFirstStepChange}
+                  className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-orange-500"
+                  placeholder="your@email.com"
+                  required
+                />
+              </div>
+              <div>
+                <label className="block text-sm font-medium text-gray-700 mb-1">Phone</label>
+                <input 
+                  type="tel"
+                  name="phone"
+                  value={formData.phone}
+                  onChange={handleFirstStepChange}
+                  className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-orange-500"
+                  placeholder="Your phone"
+                />
+              </div>
+              <div>
+                <label className="block text-sm font-medium text-gray-700 mb-1">Services Interested In</label>
+                <div className="grid grid-cols-2 gap-2">
+                  {serviceOptions.map((service) => (
+                    <label 
+                      key={service.id}
+                      className="flex items-center p-3 border border-gray-200 rounded-lg hover:border-orange-500 cursor-pointer"
                     >
-                      <option value="">Select a time</option>
-                      <option value="morning">Morning (9AM - 12PM)</option>
-                      <option value="afternoon">Afternoon (12PM - 4PM)</option>
-                      <option value="evening">Evening (4PM - 6PM)</option>
-                    </select>
-                  </div>
-                  <div className="flex gap-2">
-                    <button 
-                      type="button"
-                      onClick={() => setFormStep(1)}
-                      className="w-1/2 bg-gray-100 text-gray-700 px-6 py-3 rounded-lg hover:bg-gray-200 transition-all font-medium"
-                    >
-                      Back
-                    </button>
-                    <button 
-                      type="submit"
-                      className="w-1/2 bg-gradient-to-r from-orange-500 to-orange-400 text-white px-6 py-3 rounded-lg hover:from-orange-600 hover:to-orange-500 transition-all transform hover:scale-105 font-medium"
-                    >
-                      Book Call
-                    </button>
-                  </div>
-                </form>
-              </>
-            )}
+                      <input 
+                        type="checkbox"
+                        name="services"
+                        value={service.id}
+                        checked={formData.services.includes(service.id)}
+                        onChange={handleServiceChange}
+                        className="h-4 w-4 text-orange-500 border-gray-300 rounded focus:ring-orange-500 mr-2"
+                      />
+                      <span className="text-sm text-gray-700">{service.label}</span>
+                    </label>
+                  ))}
+                </div>
+              </div>
+              <div>
+                <label className="block text-sm font-medium text-gray-700 mb-1">Message</label>
+                <textarea 
+                  name="message"
+                  value={formData.message}
+                  onChange={handleFirstStepChange}
+                  className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-orange-500 h-20 resize-none"
+                  placeholder="Tell us about your project"
+                  required
+                ></textarea>
+              </div>
+              <div>
+                <label className="block text-sm font-medium text-gray-700 mb-1">Best Time to Call</label>
+                <select
+                  name="preferred_time"
+                  className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-orange-500"
+                  required
+                >
+                  <option value="">Select a time</option>
+                  <option value="morning">Morning (9AM - 12PM)</option>
+                  <option value="afternoon">Afternoon (12PM - 4PM)</option>
+                  <option value="evening">Evening (4PM - 6PM)</option>
+                </select>
+              </div>
+              <button 
+                type="submit"
+                className="w-full bg-gradient-to-r from-orange-500 to-orange-400 text-white px-6 py-3 rounded-lg hover:from-orange-600 hover:to-orange-500 transition-all transform hover:scale-105 font-medium"
+              >
+                Submit
+              </button>
+            </form>
 
-            <div className="mt-3 pt-2 border-t border-gray-100 text-center text-xs">
+            <div className="mt-2 pt-2 border-t border-gray-100 text-center text-xs">
               <p className="text-gray-600">Prefer email? Reach us at</p>
               <a href="mailto:damien@firelinesolutionsagency.com" className="text-orange-500 font-medium hover:text-orange-600">
                 damien@firelinesolutionsagency.com
               </a>
             </div>
-          </div>
-        </div>
-      )}
-
-      {showConfirmation && (
-        <div className="fixed inset-0 bg-black bg-opacity-50 backdrop-blur-sm z-[60] flex items-center justify-center p-4">
-          <div className="bg-gray-50 rounded-2xl p-6 max-w-[350px] w-full relative">
-            <button 
-              onClick={() => {
-                setShowConfirmation(false);
-                setShowForm(false);
-                setFormStep(1);
-              }}
-              className="absolute top-3 right-3 hover:bg-gray-100 rounded-full p-1"
-            >
-              <X className="w-5 h-5 text-gray-400 hover:text-gray-600" />
-            </button>
-            
-            <div className="text-center space-y-4">
-              <CheckCircle className="w-16 h-16 text-green-500 mx-auto" />
-              <div>
-                <h3 className="text-2xl font-bold gradient-text mb-2">Thank You!</h3>
-                <p className="text-gray-600">
-                  We've received your message and will be in touch within 1-2 business days to discuss your project and confirm your consultation.
-                </p>
-              </div>
-            </div>
-
-            <button 
-              onClick={() => {
-                setShowConfirmation(false);
-                setShowForm(false);
-                setFormStep(1);
-              }}
-              className="w-full mt-6 bg-gradient-to-r from-orange-500 to-orange-400 text-white px-6 py-3 rounded-lg hover:from-orange-600 hover:to-orange-500 transition-all transform hover:scale-105 font-medium"
-            >
-              Close
-            </button>
           </div>
         </div>
       )}
