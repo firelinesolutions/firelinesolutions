@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Menu, X, Monitor, Palette, TrendingUp, ChevronRight, Star, ArrowRight, Mail, Phone, CheckCircle } from 'lucide-react';
+import { Menu, X, Monitor, Brain, TrendingUp, ChevronRight, Star, ArrowRight, Mail, Phone, CheckCircle } from 'lucide-react';
 import { Logo } from './Logo';
 
 const LOGO_BASE64 = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMAAAADACAYAAABS3GwHAAAACXBIWXMAAAsTAAALEwEAmpwYAAAF0WlUWHRYTUw6Y29tLmFkb2JlLnhtcAAAAAAAPD94cGFja2V0IGJlZ2luPSLvu78iIGlkPSJXNU0wTXBDZWhpSHpyZVN6TlRjemtjOWQiPz4gPHg6eG1wbWV0YSB4bWxuczp4PSJhZG9iZTpuczptZXRhLyIgeDp4bXB0az0iQWRvYmUgWE1QIENvcmUgNy4yLWMwMDAgNzkuMWI2NWE3OWI0LCAyMDIyLzA2LzEzLTIyOjAxOjAxICAgICAgICAiPiA8cmRmOlJERiB4bWxuczpyZGY9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkvMDIvMjItcmRmLXN5bnRheC1ucyMiPiA8cmRmOkRlc2NyaXB0aW9uIHJkZjphYm91dD0iIiB4bWxuczp4bXA9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC8iIHhtbG5zOnhtcE1NPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvbW0vIiB4bWxuczpzdEV2dD0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL3NUeXBlL1Jlc291cmNlRXZlbnQjIiB4bWxuczpkYz0iaHR0cDovL3B1cmwub3JnL2RjL2VsZW1lbnRzLzEuMS8iIHhtbG5zOnBob3Rvc2hvcD0iaHR0cDovL25zLmFkb2JlLmNvbS9waG90b3Nob3AvMS4wLyIgeG1wOkNyZWF0b3JUb29sPSJBZG9iZSBQaG90b3Nob3AgMjQuMCAoTWFjaW50b3NoKSIgeG1wOkNyZWF0ZURhdGU9IjIwMjQtMDMtMTlUMTQ6NDc6NDctMDQ6MDAiIHhtcDpNZXRhZGF0YURhdGU9IjIwMjQtMDMtMTlUMTQ6NDc6NDctMDQ6MDAiIHhtcDpNb2RpZnlEYXRlPSIyMDI0LTAzLTE5VDE0OjQ3OjQ3LTA0OjAwIiB4bXBNTTpJbnN0YW5jZUlEPSJ4bXAuaWlkOjY5ZDEyZjE5LTJlMDctNDI4NC1hMzE1LTNkYjM4ZjM0ZjM0ZiIgeG1wTU06RG9jdW1lbnRJRD0iYWRvYmU6ZG9jaWQ6cGhvdG9zaG9wOjY5ZDEyZjE5LTJlMDctNDI4NC1hMzE1LTNkYjM4ZjM0ZjM0ZiIgeG1wTU06T3JpZ2luYWxEb2N1bWVudElEPSJ4bXAuZGlkOjY5ZDEyZjE5LTJlMDctNDI4NC1hMzE1LTNkYjM4ZjM0ZjM0ZiIgZGM6Zm9ybWF0PSJpbWFnZS9wbmciIHBob3Rvc2hvcDpDb2xvck1vZGU9IjMiPiA8eG1wTU06SGlzdG9yeT4gPHJkZjpTZXE+IDxyZGY6bGkgc3RFdnQ6YWN0aW9uPSJjcmVhdGVkIiBzdEV2dDppbnN0YW5jZUlEPSJ4bXAuaWlkOjY5ZDEyZjE5LTJlMDctNDI4NC1hMzE1LTNkYjM4ZjM0ZjM0ZiIgc3RFdnQ6d2hlbj0iMjAyNC0wMy0xOVQxNDo0Nzo0Ny0wNDowMCIgc3RFdnQ6c29mdHdhcmVBZ2VudD0iQWRvYmUgUGhvdG9zaG9wIDI0LjAgKE1hY2ludG9zaCkiLz4gPC9yZGY6U2VxPiA8L3htcE1NOkhpc3Rvcnk+IDwvcmRmOkRlc2NyaXB0aW9uPiA8L3JkZjpSREY+IDwveDp4bXBtZXRhPiA8P3hwYWNrZXQgZW5kPSJyIj8+7QGG8wAABFhJREFUeJzt3U1y2zYYgGHAzqTL9AjxEbLPMXqUHiF3yKqTI/QI6RFcZxXHkm3x+wFIQO/zTLuYjE1R4EsABCjw2+12+wUQ9fvWDQDYEgEgiwCQRQDIIgBkEQCyCABZBIAsAkAWASCLAJBFAMgiAGQRALIIAFkEgCwCQBYBIIsAkEUAyPoP1PKqgXJGG1QAAAAASUVORK5CYII=";
@@ -15,8 +15,7 @@ function App() {
     name: '',
     email: '',
     phone: '',
-    message: '',
-    services: [] as string[]
+    message: ''
   });
   const [submittedData, setSubmittedData] = useState(null);
   const [showConfirmation, setShowConfirmation] = useState(false);
@@ -44,19 +43,19 @@ function App() {
 
   const services = [
     {
-      icon: <Monitor className="w-16 h-16 text-orange-500 service-icon" />,
-      title: "Web Design",
-      description: "Custom, responsive websites that convert visitors into customers. We create stunning digital experiences that leave lasting impressions."
-    },
-    {
-      icon: <Palette className="w-16 h-16 text-orange-500 service-icon" />,
-      title: "Branding",
-      description: "Distinctive brand identities that make lasting impressions. We craft unique visual languages that tell your story."
-    },
-    {
       icon: <TrendingUp className="w-16 h-16 text-orange-500 service-icon" />,
-      title: "Marketing Consulting",
-      description: "Strategic guidance to amplify your market presence. Data-driven strategies that deliver measurable results."
+      title: "Growth Strategy",
+      description: "Develop powerful strategies to accelerate your business growth. We identify untapped opportunities and create actionable plans for market dominance."
+    },
+    {
+      icon: <Monitor className="w-16 h-16 text-orange-500 service-icon" />,
+      title: "Performance Optimization",
+      description: "Transform your business performance through data-driven insights. We optimize your operations and strategy to maximize profitability and impact."
+    },
+    {
+      icon: <Brain className="w-16 h-16 text-orange-500 service-icon" />,
+      title: "Strategic Innovation",
+      description: "Stay ahead of market trends with innovative strategies. We help you develop breakthrough solutions that create sustainable competitive advantages."
     }
   ];
 
@@ -79,9 +78,9 @@ function App() {
   ];
 
   const serviceOptions = [
-    { id: 'web-design', label: 'Web Design' },
-    { id: 'branding', label: 'Branding' },
-    { id: 'marketing', label: 'Marketing Consulting' }
+    { id: 'business-strategy', label: 'Business Strategy' },
+    { id: 'digital-transformation', label: 'Digital Transformation' },
+    { id: 'operations', label: 'Operations Consulting' }
   ];
 
   const handleFirstStepChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
@@ -110,7 +109,6 @@ function App() {
       email: formData.email,
       phone: formData.phone,
       message: formData.message,
-      services: formData.services.join(', '),
       preferred_time: e.currentTarget.querySelector<HTMLSelectElement>('select[name="preferred_time"]')?.value || '',
       timestamp: new Date().toISOString(),
       source: 'Website Contact Form'
@@ -228,14 +226,14 @@ function App() {
         <div className="grid md:grid-cols-2 gap-12 items-center">
           <div className="space-y-8 relative">
             <h1 className="text-6xl font-bold leading-tight">
-              Creating Digital
-              <span className="gradient-text block">Experiences</span>
-              That Drive Growth
+              Accelerating
+              <span className="gradient-text block">Business Growth</span>
+              Through Strategy
             </h1>
             <p className="text-xl text-gray-600">
-              Delivering personalized digital solutions that transform your brand. 
-              From stunning websites to strategic branding, every project receives 
-              dedicated attention to drive real results.
+              High-impact business strategy consulting that drives exceptional results. 
+              We partner with ambitious businesses to achieve breakthrough performance 
+              and sustainable growth.
             </p>
             <div className="relative z-[45]">
               <button 
@@ -265,8 +263,8 @@ function App() {
       <section id="services" className="py-20 bg-gradient-to-b from-white to-orange-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <h2 className="text-5xl font-bold gradient-text mb-4">Our Services</h2>
-            <p className="text-xl text-gray-600">Comprehensive solutions for your digital needs</p>
+            <h2 className="text-5xl font-bold gradient-text mb-4">Strategic Solutions</h2>
+            <p className="text-xl text-gray-600">High-impact strategies for ambitious businesses</p>
           </div>
           <div className="grid md:grid-cols-3 gap-8">
             {services.map((service, index) => (
@@ -384,27 +382,6 @@ function App() {
                 />
               </div>
               <div>
-                <label className="block text-sm font-medium text-gray-700 mb-1">Services Interested In</label>
-                <div className="grid grid-cols-2 gap-2">
-                  {serviceOptions.map((service) => (
-                    <label 
-                      key={service.id}
-                      className="flex items-center p-3 border border-gray-200 rounded-lg hover:border-orange-500 cursor-pointer"
-                    >
-                      <input 
-                        type="checkbox"
-                        name="services"
-                        value={service.id}
-                        checked={formData.services.includes(service.id)}
-                        onChange={handleServiceChange}
-                        className="h-4 w-4 text-orange-500 border-gray-300 rounded focus:ring-orange-500 mr-2"
-                      />
-                      <span className="text-sm text-gray-700">{service.label}</span>
-                    </label>
-                  ))}
-                </div>
-              </div>
-              <div>
                 <label className="block text-sm font-medium text-gray-700 mb-1">Message</label>
                 <textarea 
                   name="message"
@@ -461,15 +438,15 @@ function App() {
                 <Logo inverted={true} />
               </button>
               <p className="text-gray-400">
-                Creating exceptional digital experiences that drive business growth.
+                Delivering high-impact business strategies that drive exceptional growth.
               </p>
             </div>
             <div>
               <h3 className="text-lg font-semibold mb-4 gradient-text">Services</h3>
               <ul className="space-y-3 text-gray-400">
-                <li>Web Design</li>
-                <li>Branding</li>
-                <li>Marketing Consulting</li>
+                <li>Growth Strategy</li>
+                <li>Performance Optimization</li>
+                <li>Strategic Innovation</li>
               </ul>
             </div>
             <div>
