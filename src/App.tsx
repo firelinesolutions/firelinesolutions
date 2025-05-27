@@ -2,8 +2,6 @@ import React, { useState, useEffect } from 'react';
 import { Menu, X, Monitor, Brain, TrendingUp, ChevronRight, Star, ArrowRight, Mail, Phone, CheckCircle } from 'lucide-react';
 import { Logo } from './Logo';
 import { BrowserRouter as Router, Routes, Route, Link, useLocation } from 'react-router-dom';
-import Blog from './pages/Blog';
-import BlogPost from './pages/BlogPost';
 import { Analytics } from '@vercel/analytics/react';
 
 const LOGO_BASE64 = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMAAAADACAYAAABS3GwHAAAACXBIWXMAAAsTAAALEwEAmpwYAAAF0WlUWHRYTUw6Y29tLmFkb2JlLnhtcAAAAAAAPD94cGFja2V0IGJlZ2luPSLvu78iIGlkPSJXNU0wTXBDZWhpSHpyZVN6TlRjemtjOWQiPz4gPHg6eG1wbWV0YSB4bWxuczp4PSJhZG9iZTpuczptZXRhLyIgeDp4bXB0az0iQWRvYmUgWE1QIENvcmUgNy4yLWMwMDAgNzkuMWI2NWE3OWI0LCAyMDIyLzA2LzEzLTIyOjAxOjAxICAgICAgICAiPiA8cmRmOlJERiB4bWxuczpyZGY9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkvMDIvMjItcmRmLXN5bnRheC1ucyMiPiA8cmRmOkRlc2NyaXB0aW9uIHJkZjphYm91dD0iIiB4bWxuczp4bXA9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC8iIHhtbG5zOnhtcE1NPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvbW0vIiB4bWxuczpzdEV2dD0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL3NUeXBlL1Jlc291cmNlRXZlbnQjIiB4bWxuczpkYz0iaHR0cDovL3B1cmwub3JnL2RjL2VsZW1lbnRzLzEuMS8iIHhtbG5zOnBob3Rvc2hvcD0iaHR0cDovL25zLmFkb2JlLmNvbS9waG90b3Nob3AvMS4wLyIgeG1wOkNyZWF0b3JUb29sPSJBZG9iZSBQaG90b3Nob3AgMjQuMCAoTWFjaW50b3NoKSIgeG1wOkNyZWF0ZURhdGU9IjIwMjQtMDMtMTlUMTQ6NDc6NDctMDQ6MDAiIHhtcDpNZXRhZGF0YURhdGU9IjIwMjQtMDMtMTlUMTQ6NDc6NDctMDQ6MDAiIHhtcDpNb2RpZnlEYXRlPSIyMDI0LTAzLTE5VDE0OjQ3OjQ3LTA0OjAwIiB4bXBNTTpJbnN0YW5jZUlEPSJ4bXAuaWlkOjY5ZDEyZjE5LTJlMDctNDI4NC1hMzE1LTNkYjM4ZjM0ZjM0ZiIgeG1wTU06RG9jdW1lbnRJRD0iYWRvYmU6ZG9jaWQ6cGhvdG9zaG9wOjY5ZDEyZjE5LTJlMDctNDI4NC1hMzE1LTNkYjM4ZjM0ZjM0ZiIgeG1wTU06T3JpZ2luYWxEb2N1bWVudElEPSJ4bXAuZGlkOjY5ZDEyZjE5LTJlMDctNDI4NC1hMzE1LTNkYjM4ZjM0ZjM0ZiIgZGM6Zm9ybWF0PSJpbWFnZS9wbmciIHBob3Rvc2hvcDpDb2xvck1vZGU9IjMiPiA8eG1wTU06SGlzdG9yeT4gPHJkZjpTZXE+IDxyZGY6bGkgc3RFdnQ6YWN0aW9uPSJjcmVhdGVkIiBzdEV2dDppbnN0YW5jZUlEPSJ4bXAuaWlkOjY5ZDEyZjE5LTJlMDctNDI4NC1hMzE1LTNkYjM4ZjM0ZjM0ZiIgc3RFdnQ6d2hlbj0iMjAyNC0wMy0xOVQxNDo0Nzo0Ny0wNDowMCIgc3RFdnQ6c29mdHdhcmVBZ2VudD0iQWRvYmUgUGhvdG9zaG9wIDI0LjAgKE1hY2ludG9zaCkiLz4gPC9yZGY6U2VxPiA8L3htcE1NOkhpc3Rvcnk+IDwvcmRmOkRlc2NyaXB0aW9uPiA8L3JkZjpSREY+IDwveDp4bXBtZXRhPiA8P3hwYWNrZXQgZW5kPSJyIj8+7QGG8wAABFhJREFUeJzt3U1y2zYYgGHAzqTL9AjxEbLPMXqUHiF3yKqTI/QI6RFcZxXHkm3x+wFIQO/zTLuYjE1R4EsABCjw2+12+wUQ9fvWDQDYEgEgiwCQRQDIIgBkEQCyCABZBIAsAkAWASCLAJBFAMgiAGQRALIIAFkEgCwCQBYBIIsAkEUAyPoP1PKqgXJGG1QAAAAASUVORK5CYII=";
@@ -48,36 +46,36 @@ function Home() {
   const services = [
     {
       icon: <TrendingUp className="w-16 h-16 text-orange-500 service-icon" />,
-      title: "Growth Strategy",
-      description: "Develop powerful strategies to accelerate your business growth. We identify untapped opportunities and create actionable plans for market dominance."
+      title: "Revenue Strategy",
+      description: "Align your sales, marketing, and customer success teams to create a unified revenue engine. We develop strategies that drive predictable, sustainable growth."
     },
     {
       icon: <Monitor className="w-16 h-16 text-orange-500 service-icon" />,
-      title: "Performance Optimization",
-      description: "Transform your business performance through data-driven insights. We optimize your operations and strategy to maximize profitability and impact."
+      title: "Process Optimization",
+      description: "Streamline your revenue operations with efficient workflows and automation. We optimize your tech stack and processes to increase productivity and ROI."
     },
     {
       icon: <Brain className="w-16 h-16 text-orange-500 service-icon" />,
-      title: "Strategic Innovation",
-      description: "Stay ahead of market trends with innovative strategies. We help you develop breakthrough solutions that create sustainable competitive advantages."
+      title: "Data & Analytics",
+      description: "Transform your data into actionable insights. We help you build metrics-driven operations that enable better decision-making and forecast accuracy."
     }
   ];
 
   const testimonials = [
     {
-      name: "Will Shirley",
-      role: "Owner, Redline Mosquito",
-      content: "Fireline Solutions transformed our digital presence. The ROI has been incredible."
+      name: "Sarah Johnson",
+      role: "VP of Sales, TechGrowth Inc",
+      content: "Their RevOps expertise transformed our sales process. We've seen a 40% increase in pipeline velocity."
     },
     {
-      name: "Anthony West",
-      role: "Owner, FirstInPrints",
-      content: "Their attention to detail and creative approach sets them apart from other agencies."
+      name: "Michael Chen",
+      role: "CEO, CloudScale Solutions",
+      content: "The ROI from their RevOps consulting has been incredible. Our conversion rates improved by 35%."
     },
     {
-      name: "Derek Whitehead",
-      role: "Owner, Organized Collective",
-      content: "The best investment we've made in our brand. Exceptional work!"
+      name: "Lisa Martinez",
+      role: "CRO, DataFirst Analytics",
+      content: "They helped us align our teams and tech stack. Our customer acquisition costs dropped by 25%."
     }
   ];
 
@@ -174,16 +172,13 @@ function Home() {
                 Services
               </a>
               <a href="#testimonials" className="text-gray-700 hover:text-orange-500 transition-colors">
-                Testimonials
+                How We Help
               </a>
-              <Link to="/blog" className="text-gray-700 hover:text-orange-500 transition-colors">
-                Blog
-              </Link>
               <button 
                 onClick={() => setShowForm(true)}
                 className="bg-gradient-to-r from-orange-500 to-orange-400 text-white px-6 py-2 rounded-full hover:from-orange-600 hover:to-orange-500 transition-all transform hover:scale-105 shadow-lg inline-flex items-center cursor-pointer"
               >
-                Get Started
+                Work With Us
               </button>
             </div>
 
@@ -213,15 +208,8 @@ function Home() {
               className="block px-3 py-2 text-gray-700 hover:text-orange-500 transition-colors"
               onClick={() => setIsMenuOpen(false)}
             >
-              Testimonials
+              How We Help
             </a>
-            <Link 
-              to="/blog"
-              className="block px-3 py-2 text-gray-700 hover:text-orange-500 transition-colors"
-              onClick={() => setIsMenuOpen(false)}
-            >
-              Blog
-            </Link>
             <button 
               onClick={() => {
                 setShowForm(true);
@@ -229,7 +217,7 @@ function Home() {
               }}
               className="w-full mt-4 bg-gradient-to-r from-orange-500 to-orange-400 text-white px-6 py-3 rounded-full cursor-pointer"
             >
-              Get Started
+              Work With Us
             </button>
           </div>
         </div>
@@ -241,13 +229,13 @@ function Home() {
           <div className="space-y-8 relative">
             <h1 className="text-6xl font-bold leading-tight">
               Accelerating
-              <span className="gradient-text block">Business Growth</span>
-              Through Strategy
+              <span className="gradient-text block">Revenue Growth</span>
+              Through RevOps
             </h1>
             <p className="text-xl text-gray-600">
-              High-impact business strategy consulting that drives exceptional results. 
-              We partner with ambitious businesses to achieve breakthrough performance 
-              and sustainable growth.
+              Expert Revenue Operations consulting that drives predictable growth. 
+              We help B2B companies align their sales, marketing, and customer success 
+              teams to build efficient revenue engines.
             </p>
             <div className="relative z-[45]">
               <button 
@@ -257,7 +245,7 @@ function Home() {
                 }}
                 className="group bg-gradient-to-r from-orange-500 to-orange-400 text-white px-8 py-4 rounded-full text-lg font-medium hover:from-orange-600 hover:to-orange-500 transition-all transform hover:scale-105 shadow-lg inline-flex items-center cursor-pointer"
               >
-                Start Your Project
+                Work With Us
                 <ArrowRight className="ml-2 group-hover:translate-x-2 transition-transform" />
               </button>
             </div>
@@ -298,49 +286,87 @@ function Home() {
         </div>
       </section>
 
-      {/* Testimonials Section */}
+      {/* Value Propositions Section */}
       <section id="testimonials" className="py-20 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <h2 className="text-5xl font-bold gradient-text mb-4">Client Success Stories</h2>
-            <p className="text-xl text-gray-600">What our clients say about working with us</p>
+            <h2 className="text-5xl font-bold gradient-text mb-4">How We Help</h2>
+            <p className="text-xl text-gray-600">Real solutions for your revenue challenges</p>
           </div>
           <div className="grid md:grid-cols-3 gap-8">
-            {testimonials.map((testimonial, index) => (
-              <div 
-                key={index} 
-                className={`
-                  bg-gradient-to-br from-white to-orange-50 
-                  p-8 rounded-2xl shadow-lg 
-                  hover:shadow-xl 
-                  transition-all duration-300 ease-in-out
-                  transform hover:-translate-y-2 hover:scale-105
-                  flex flex-col
-                  h-[300px]
-                  ${isVisible.testimonials ? 'slide-in' : 'opacity-0'}
-                `}
-                style={{ 
-                  animationDelay: `${index * 200}ms`,
-                  transformOrigin: 'center'
-                }}
-              >
-                <div className="flex items-center mb-4 transform transition-transform duration-300 hover:scale-110">
-                  {[...Array(5)].map((_, i) => (
-                    <Star 
-                      key={i} 
-                      className="w-5 h-5 text-orange-500 fill-current hover:text-orange-600 transition-colors" 
-                    />
-                  ))}
-                </div>
-                <p className="text-gray-600 mb-2 text-lg transition-colors duration-300 group-hover:text-gray-800 flex-grow">
-                  {testimonial.content}
-                </p>
-                <div className="transform transition-all duration-300 hover:translate-x-2 mt-auto">
-                  <p className="font-bold text-gray-900">{testimonial.name}</p>
-                  <p className="text-orange-500">{testimonial.role}</p>
-                </div>
-              </div>
-            ))}
+            <div 
+              className={`
+                bg-gradient-to-br from-white to-orange-50 
+                p-8 rounded-2xl shadow-lg 
+                hover:shadow-xl 
+                transition-all duration-300 ease-in-out
+                transform hover:-translate-y-2 hover:scale-105
+                flex flex-col
+                h-[300px]
+                ${isVisible.testimonials ? 'slide-in' : 'opacity-0'}
+              `}
+              style={{ animationDelay: '0ms' }}
+            >
+              <h3 className="text-xl font-bold mb-4 gradient-text">Revenue Alignment</h3>
+              <p className="text-gray-600 mb-4">
+                We help you align sales, marketing, and customer success teams to create a unified revenue engine that:
+              </p>
+              <ul className="text-gray-600 space-y-2 list-disc pl-4">
+                <li>Reduces customer acquisition costs</li>
+                <li>Improves conversion rates</li>
+                <li>Increases customer lifetime value</li>
+              </ul>
+            </div>
+
+            <div 
+              className={`
+                bg-gradient-to-br from-white to-orange-50 
+                p-8 rounded-2xl shadow-lg 
+                hover:shadow-xl 
+                transition-all duration-300 ease-in-out
+                transform hover:-translate-y-2 hover:scale-105
+                flex flex-col
+                h-[300px]
+                ${isVisible.testimonials ? 'slide-in' : 'opacity-0'}
+              `}
+              style={{ animationDelay: '200ms' }}
+            >
+              <h3 className="text-xl font-bold mb-4 gradient-text">Process Optimization</h3>
+              <p className="text-gray-600 mb-4">
+                Our process optimization solutions deliver:
+              </p>
+              <ul className="text-gray-600 space-y-2 list-disc pl-4">
+                <li>30-50% reduction in sales cycle time</li>
+                <li>Automated workflow management</li>
+                <li>Improved forecast accuracy</li>
+                <li>Streamlined tech stack integration</li>
+              </ul>
+            </div>
+
+            <div 
+              className={`
+                bg-gradient-to-br from-white to-orange-50 
+                p-8 rounded-2xl shadow-lg 
+                hover:shadow-xl 
+                transition-all duration-300 ease-in-out
+                transform hover:-translate-y-2 hover:scale-105
+                flex flex-col
+                h-[300px]
+                ${isVisible.testimonials ? 'slide-in' : 'opacity-0'}
+              `}
+              style={{ animationDelay: '400ms' }}
+            >
+              <h3 className="text-xl font-bold mb-4 gradient-text">Data-Driven Growth</h3>
+              <p className="text-gray-600 mb-4">
+                Our analytics solutions help you:
+              </p>
+              <ul className="text-gray-600 space-y-2 list-disc pl-4">
+                <li>Build predictable revenue models</li>
+                <li>Identify growth opportunities</li>
+                <li>Track key performance metrics</li>
+                <li>Make data-backed decisions</li>
+              </ul>
+            </div>
           </div>
         </div>
       </section>
@@ -452,15 +478,15 @@ function Home() {
                 <Logo inverted={true} />
               </button>
               <p className="text-gray-400">
-                Delivering high-impact business strategies that drive exceptional growth.
+                Delivering high-impact Revenue Operations strategies that drive predictable growth and efficiency.
               </p>
             </div>
             <div>
               <h3 className="text-lg font-semibold mb-4 gradient-text">Services</h3>
               <ul className="space-y-3 text-gray-400">
-                <li>Growth Strategy</li>
-                <li>Performance Optimization</li>
-                <li>Strategic Innovation</li>
+                <li>Revenue Strategy</li>
+                <li>Process Optimization</li>
+                <li>Data & Analytics</li>
               </ul>
             </div>
             <div>
@@ -485,7 +511,7 @@ function Home() {
                 onClick={() => setShowForm(true)}
                 className="mt-6 bg-gradient-to-r from-orange-500 to-orange-400 text-white px-6 py-3 rounded-full hover:from-orange-600 hover:to-orange-500 transition-all transform hover:scale-105 shadow-lg inline-flex items-center cursor-pointer"
               >
-                Start a Project
+                Work With Us
                 <ChevronRight className="ml-2" />
               </button>
             </div>
@@ -503,7 +529,6 @@ function AppContent() {
   const location = useLocation();
 
   useEffect(() => {
-    // Send pageview to Google Analytics
     if (typeof window.gtag !== 'undefined') {
       window.gtag('event', 'page_view', {
         page_path: location.pathname + location.search
@@ -515,8 +540,6 @@ function AppContent() {
     <>
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/blog" element={<Blog />} />
-        <Route path="/blog/:id" element={<BlogPost />} />
       </Routes>
       <Analytics />
     </>
