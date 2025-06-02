@@ -151,43 +151,84 @@ function Home() {
 
   return (
     <div className="min-h-screen bg-gray-50">
-      {/* Navigation */}
-      <nav className="fixed w-full bg-white/90 backdrop-blur-sm z-50 border-b border-gray-100">
+      {/* Navigation Bar */}
+      <nav className="fixed top-0 left-0 right-0 bg-white/80 backdrop-blur-sm z-50 shadow-sm">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex justify-between h-20 items-center">
-            <div className="flex items-center">
+          <div className="flex items-center justify-between h-20">
+            {/* Logo */}
+            <div className="flex-shrink-0">
               <button
                 onClick={() => {
                   window.scrollTo({ top: 0, behavior: 'smooth' });
-                  setIsMenuOpen(false);
                 }}
-                className="hover:opacity-80 transition-opacity"
+                className="hover:opacity-80 transition-opacity cursor-pointer"
               >
                 <Logo />
               </button>
             </div>
-            
-            <div className="hidden md:flex items-center gap-8">
-              <a href="#services" className="text-gray-700 hover:text-orange-500 transition-colors">
+
+            {/* Desktop Navigation */}
+            <div className="hidden md:flex items-center space-x-8">
+              <a 
+                href="#services" 
+                className="text-gray-700 hover:text-orange-500 transition-colors font-medium"
+                onClick={(e) => {
+                  e.preventDefault();
+                  document.querySelector('#services')?.scrollIntoView({ behavior: 'smooth' });
+                }}
+              >
                 Services
               </a>
-              <a href="#testimonials" className="text-gray-700 hover:text-orange-500 transition-colors">
+              <a 
+                href="#how-we-help" 
+                className="text-gray-700 hover:text-orange-500 transition-colors font-medium"
+                onClick={(e) => {
+                  e.preventDefault();
+                  document.querySelector('#how-we-help')?.scrollIntoView({ behavior: 'smooth' });
+                }}
+              >
                 How We Help
               </a>
-              <button 
-                onClick={() => setShowForm(true)}
-                className="bg-gradient-to-r from-orange-500 to-orange-400 text-white px-6 py-2 rounded-full hover:from-orange-600 hover:to-orange-500 transition-all transform hover:scale-105 shadow-lg inline-flex items-center cursor-pointer"
+              <a 
+                href="#who-its-for" 
+                className="text-gray-700 hover:text-orange-500 transition-colors font-medium"
+                onClick={(e) => {
+                  e.preventDefault();
+                  document.querySelector('#who-its-for')?.scrollIntoView({ behavior: 'smooth' });
+                }}
               >
-                Work With Us
+                Who It's For
+              </a>
+              <a 
+                href="#what-you-get" 
+                className="text-gray-700 hover:text-orange-500 transition-colors font-medium"
+                onClick={(e) => {
+                  e.preventDefault();
+                  document.querySelector('#what-you-get')?.scrollIntoView({ behavior: 'smooth' });
+                }}
+              >
+                What You Get
+              </a>
+              <button 
+                onClick={(e) => {
+                  e.preventDefault();
+                  document.querySelector('#contact-form')?.scrollIntoView({ behavior: 'smooth' });
+                }}
+                className="bg-gradient-to-r from-orange-500 to-orange-400 text-white px-6 py-2 rounded-full text-sm font-medium hover:from-orange-600 hover:to-orange-500 transition-all transform hover:scale-105 shadow-md"
+              >
+                Contact Us
               </button>
             </div>
 
-            <button 
-              className="md:hidden"
-              onClick={() => setIsMenuOpen(!isMenuOpen)}
-            >
-              {isMenuOpen ? <X /> : <Menu />}
-            </button>
+            {/* Mobile menu button */}
+            <div className="md:hidden">
+              <button
+                onClick={() => setIsMenuOpen(!isMenuOpen)}
+                className="inline-flex items-center justify-center p-2 rounded-md text-gray-700 hover:text-orange-500"
+              >
+                {isMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
+              </button>
+            </div>
           </div>
         </div>
       </nav>
@@ -199,25 +240,56 @@ function Home() {
             <a 
               href="#services" 
               className="block px-3 py-2 text-gray-700 hover:text-orange-500 transition-colors"
-              onClick={() => setIsMenuOpen(false)}
+              onClick={(e) => {
+                e.preventDefault();
+                document.querySelector('#services')?.scrollIntoView({ behavior: 'smooth' });
+                setIsMenuOpen(false);
+              }}
             >
               Services
             </a>
             <a 
-              href="#testimonials" 
+              href="#how-we-help" 
               className="block px-3 py-2 text-gray-700 hover:text-orange-500 transition-colors"
-              onClick={() => setIsMenuOpen(false)}
+              onClick={(e) => {
+                e.preventDefault();
+                document.querySelector('#how-we-help')?.scrollIntoView({ behavior: 'smooth' });
+                setIsMenuOpen(false);
+              }}
             >
               How We Help
             </a>
+            <a 
+              href="#who-its-for" 
+              className="block px-3 py-2 text-gray-700 hover:text-orange-500 transition-colors"
+              onClick={(e) => {
+                e.preventDefault();
+                document.querySelector('#who-its-for')?.scrollIntoView({ behavior: 'smooth' });
+                setIsMenuOpen(false);
+              }}
+            >
+              Who It's For
+            </a>
+            <a 
+              href="#what-you-get" 
+              className="block px-3 py-2 text-gray-700 hover:text-orange-500 transition-colors"
+              onClick={(e) => {
+                e.preventDefault();
+                document.querySelector('#what-you-get')?.scrollIntoView({ behavior: 'smooth' });
+                setIsMenuOpen(false);
+              }}
+            >
+              What You Get
+            </a>
             <button 
-              onClick={() => {
-                setShowForm(true);
+              onClick={(e) => {
+                e.preventDefault();
+                document.querySelector('#contact-form')?.scrollIntoView({ behavior: 'smooth' });
                 setIsMenuOpen(false);
               }}
               className="w-full mt-4 bg-gradient-to-r from-orange-500 to-orange-400 text-white px-6 py-3 rounded-full cursor-pointer"
             >
-              Work With Us
+              Contact Us
             </button>
           </div>
         </div>
@@ -228,24 +300,22 @@ function Home() {
         <div className="grid md:grid-cols-2 gap-12 items-center">
           <div className="space-y-8 relative">
             <h1 className="text-6xl font-bold leading-tight">
-              Accelerating
-              <span className="gradient-text block">Revenue Growth</span>
-              Through RevOps
+              The Engine for
+              <span className="gradient-text block">Scalable Revenue</span>
+              Growth
             </h1>
             <p className="text-xl text-gray-600">
-              Expert Revenue Operations consulting that drives predictable growth. 
-              We help B2B companies align their sales, marketing, and customer success 
-              teams to build efficient revenue engines.
+              B2B companies can't afford siloed teams, leaky funnels or guesswork. If your sales cycles feel slow, your CRM is messy or your leads go nowhere, the problem isn't your people - it's your process.
             </p>
             <div className="relative z-[45]">
               <button 
-                onClick={() => {
-                  setShowForm(true);
-                  setIsMenuOpen(false);
+                onClick={(e) => {
+                  e.preventDefault();
+                  document.querySelector('#contact-form')?.scrollIntoView({ behavior: 'smooth' });
                 }}
-                className="group bg-gradient-to-r from-orange-500 to-orange-400 text-white px-8 py-4 rounded-full text-lg font-medium hover:from-orange-600 hover:to-orange-500 transition-all transform hover:scale-105 shadow-lg inline-flex items-center cursor-pointer"
+                className="group bg-gradient-to-r from-orange-500 to-orange-400 text-white px-8 py-4 rounded-full text-lg font-medium hover:from-orange-600 hover:to-orange-500 transition-all transform hover:scale-105 shadow-lg inline-flex items-center"
               >
-                Work With Us
+                Book a Free Consultation
                 <ArrowRight className="ml-2 group-hover:translate-x-2 transition-transform" />
               </button>
             </div>
@@ -262,7 +332,7 @@ function Home() {
       </section>
 
       {/* Services Section */}
-      <section id="services" className="pt-28 pb-20 bg-gradient-to-b from-transparent to-orange-50">
+      <section id="services" className="py-20 bg-gradient-to-b from-transparent to-orange-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-5xl font-bold gradient-text mb-6">Strategic Solutions</h2>
@@ -286,8 +356,8 @@ function Home() {
         </div>
       </section>
 
-      {/* Value Propositions Section */}
-      <section id="testimonials" className="py-20 bg-gray-50">
+      {/* How We Help Section */}
+      <section id="how-we-help" className="py-20 bg-gradient-to-b from-transparent to-orange-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-5xl font-bold gradient-text mb-4">How We Help</h2>
@@ -295,41 +365,22 @@ function Home() {
           </div>
           <div className="grid md:grid-cols-3 gap-8">
             <div 
-              className={`
-                bg-gradient-to-br from-white to-orange-50 
-                p-8 rounded-2xl shadow-lg 
-                hover:shadow-xl 
-                transition-all duration-300 ease-in-out
-                transform hover:-translate-y-2 hover:scale-105
-                flex flex-col
-                h-[300px]
-                ${isVisible.testimonials ? 'slide-in' : 'opacity-0'}
-              `}
-              style={{ animationDelay: '0ms' }}
+              className="service-card p-8 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 ease-in-out transform hover:-translate-y-2 hover:scale-105 bg-gradient-to-br from-white to-orange-50"
             >
               <h3 className="text-xl font-bold mb-4 gradient-text">Revenue Alignment</h3>
               <p className="text-gray-600 mb-4">
-                We help you align sales, marketing, and customer success teams to create a unified revenue engine that:
+                Our analytics solutions help you:
               </p>
               <ul className="text-gray-600 space-y-2 list-disc pl-4">
-                <li>Reduces customer acquisition costs</li>
-                <li>Improves conversion rates</li>
-                <li>Increases customer lifetime value</li>
+                <li>Build predictable revenue models</li>
+                <li>Identify growth opportunities</li>
+                <li>Track key performance metrics</li>
+                <li>Make data-backed decisions</li>
               </ul>
             </div>
 
             <div 
-              className={`
-                bg-gradient-to-br from-white to-orange-50 
-                p-8 rounded-2xl shadow-lg 
-                hover:shadow-xl 
-                transition-all duration-300 ease-in-out
-                transform hover:-translate-y-2 hover:scale-105
-                flex flex-col
-                h-[300px]
-                ${isVisible.testimonials ? 'slide-in' : 'opacity-0'}
-              `}
-              style={{ animationDelay: '200ms' }}
+              className="service-card p-8 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 ease-in-out transform hover:-translate-y-2 hover:scale-105 bg-gradient-to-br from-white to-orange-50"
             >
               <h3 className="text-xl font-bold mb-4 gradient-text">Process Optimization</h3>
               <p className="text-gray-600 mb-4">
@@ -344,17 +395,7 @@ function Home() {
             </div>
 
             <div 
-              className={`
-                bg-gradient-to-br from-white to-orange-50 
-                p-8 rounded-2xl shadow-lg 
-                hover:shadow-xl 
-                transition-all duration-300 ease-in-out
-                transform hover:-translate-y-2 hover:scale-105
-                flex flex-col
-                h-[300px]
-                ${isVisible.testimonials ? 'slide-in' : 'opacity-0'}
-              `}
-              style={{ animationDelay: '400ms' }}
+              className="service-card p-8 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 ease-in-out transform hover:-translate-y-2 hover:scale-105 bg-gradient-to-br from-white to-orange-50"
             >
               <h3 className="text-xl font-bold mb-4 gradient-text">Data-Driven Growth</h3>
               <p className="text-gray-600 mb-4">
@@ -367,6 +408,229 @@ function Home() {
                 <li>Make data-backed decisions</li>
               </ul>
             </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Who It's For Section */}
+      <section id="who-its-for" className="py-20 bg-gradient-to-b from-transparent to-orange-50">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-16">
+            <h2 className="text-5xl font-bold gradient-text mb-6">Who It's For</h2>
+            <p className="text-xl text-gray-600 relative z-10">Tailored solutions for growing businesses</p>
+          </div>
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+            <div 
+              className="service-card p-8 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 ease-in-out transform hover:-translate-y-2 hover:scale-105 bg-gradient-to-br from-white to-orange-50"
+            >
+              <h3 className="text-xl font-bold mb-3 gradient-text">Team Alignment</h3>
+              <p className="text-gray-600">Need tighter alignment between marketing, sales and success teams to close more deals</p>
+            </div>
+
+            <div 
+              className="service-card p-8 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 ease-in-out transform hover:-translate-y-2 hover:scale-105 bg-gradient-to-br from-white to-orange-50"
+            >
+              <h3 className="text-xl font-bold mb-3 gradient-text">Growth Focused</h3>
+              <p className="text-gray-600">Ready to scale revenue but struggling with inefficient processes and manual workflows</p>
+            </div>
+
+            <div 
+              className="service-card p-8 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 ease-in-out transform hover:-translate-y-2 hover:scale-105 bg-gradient-to-br from-white to-orange-50"
+            >
+              <h3 className="text-xl font-bold mb-3 gradient-text">Data Challenges</h3>
+              <p className="text-gray-600">Lack visibility into pipeline metrics and need better reporting across teams</p>
+            </div>
+
+            <div 
+              className="service-card p-8 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 ease-in-out transform hover:-translate-y-2 hover:scale-105 bg-gradient-to-br from-white to-orange-50"
+            >
+              <h3 className="text-xl font-bold mb-3 gradient-text">Tech Stack Issues</h3>
+              <p className="text-gray-600">Need help optimizing your CRM and sales tools to work more efficiently</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* What You Get Section */}
+      <section id="what-you-get" className="py-20">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <h2 className="text-4xl font-bold text-center mb-16 gradient-text">What You Get</h2>
+          
+          {/* First Row */}
+          <div className="grid lg:grid-cols-2 gap-12 mb-12">
+            <div 
+              className="bg-gradient-to-br from-white to-orange-50 p-8 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 ease-in-out transform hover:-translate-y-2 hover:scale-105"
+            >
+              <div className="flex items-start gap-6">
+                <div className="text-orange-500 text-4xl font-bold">01</div>
+                <div>
+                  <h3 className="text-2xl font-bold mb-4 gradient-text">RevOps Diagnostic</h3>
+                  <p className="text-gray-600 mb-6">We perform a full RevOps diagnostic to evaluate your funnel and identify gaps across marketing, sales, and customer success.</p>
+                  <div className="pt-6 border-t border-gray-100">
+                    <h4 className="text-lg font-semibold mb-3 text-orange-500">Deliverables</h4>
+                    <ul className="space-y-2 text-gray-600">
+                      <li>• Full funnel diagnostic report</li>
+                      <li>• Revenue operations assessment</li>
+                      <li>• Tech stack audit</li>
+                      <li>• Process gap analysis</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div 
+              className="bg-gradient-to-br from-white to-orange-50 p-8 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 ease-in-out transform hover:-translate-y-2 hover:scale-105"
+            >
+              <div className="flex items-start gap-6">
+                <div className="text-orange-500 text-4xl font-bold">02</div>
+                <div>
+                  <h3 className="text-2xl font-bold mb-4 gradient-text">Strategic Roadmap</h3>
+                  <p className="text-gray-600 mb-6">We develop a custom implementation plan to optimize your revenue operations and drive growth.</p>
+                  <div className="pt-6 border-t border-gray-100">
+                    <h4 className="text-lg font-semibold mb-3 text-orange-500">Deliverables</h4>
+                    <ul className="space-y-2 text-gray-600">
+                      <li>• Custom RevOps playbook</li>
+                      <li>• Implementation roadmap</li>
+                      <li>• Tech stack recommendations</li>
+                      <li>• Process optimization plan</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Second Row */}
+          <div className="grid lg:grid-cols-2 gap-12">
+            <div 
+              className="bg-gradient-to-br from-white to-orange-50 p-8 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 ease-in-out transform hover:-translate-y-2 hover:scale-105"
+            >
+              <div className="flex items-start gap-6">
+                <div className="text-orange-500 text-4xl font-bold">03</div>
+                <div>
+                  <h3 className="text-2xl font-bold mb-4 gradient-text">Implementation & Integration</h3>
+                  <p className="text-gray-600 mb-6">We execute the roadmap and implement solutions across your entire revenue operations.</p>
+                  <div className="pt-6 border-t border-gray-100">
+                    <h4 className="text-lg font-semibold mb-3 text-orange-500">Deliverables</h4>
+                    <ul className="space-y-2 text-gray-600">
+                      <li>• Optimized CRM configuration</li>
+                      <li>• Automated workflows</li>
+                      <li>• Sales enablement tools</li>
+                      <li>• Team training & documentation</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div 
+              className="bg-gradient-to-br from-white to-orange-50 p-8 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 ease-in-out transform hover:-translate-y-2 hover:scale-105"
+            >
+              <div className="flex items-start gap-6">
+                <div className="text-orange-500 text-4xl font-bold">04</div>
+                <div>
+                  <h3 className="text-2xl font-bold mb-4 gradient-text">Optimization & Growth</h3>
+                  <p className="text-gray-600 mb-6">We continuously monitor, optimize and scale your revenue operations for sustained growth.</p>
+                  <div className="pt-6 border-t border-gray-100">
+                    <h4 className="text-lg font-semibold mb-3 text-orange-500">Deliverables</h4>
+                    <ul className="space-y-2 text-gray-600">
+                      <li>• Monthly strategy sessions</li>
+                      <li>• Performance dashboards</li>
+                      <li>• Optimization recommendations</li>
+                      <li>• Quarterly business reviews</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Contact Form Section */}
+      <section id="contact-form" className="py-20 bg-gradient-to-b from-transparent to-orange-50">
+        <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-12">
+            <h2 className="text-5xl font-bold gradient-text mb-6">Ready to Transform Your Revenue Operations?</h2>
+            <p className="text-xl text-gray-600">Schedule a free consultation to discuss your needs and see how we can help.</p>
+          </div>
+          
+          <div className="bg-gradient-to-br from-white to-orange-50 rounded-2xl shadow-xl p-8 relative overflow-hidden">
+            <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-gradient-to-r from-orange-200 to-yellow-100 rounded-full blur-3xl opacity-20 -translate-y-1/2 translate-x-1/2"></div>
+            
+            <form onSubmit={handleSubmit} className="space-y-6 relative z-10">
+              <div className="grid md:grid-cols-2 gap-6">
+                <div>
+                  <label className="block text-sm font-semibold text-gray-700 mb-2">Name</label>
+                  <input 
+                    type="text"
+                    name="name"
+                    value={formData.name}
+                    onChange={handleFirstStepChange}
+                    className="w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:ring-2 focus:ring-orange-500 focus:border-orange-500 transition-all duration-200 bg-white/80 backdrop-blur-sm"
+                    placeholder="Your name"
+                    required
+                  />
+                </div>
+                <div>
+                  <label className="block text-sm font-semibold text-gray-700 mb-2">Email</label>
+                  <input 
+                    type="email"
+                    name="email"
+                    value={formData.email}
+                    onChange={handleFirstStepChange}
+                    className="w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:ring-2 focus:ring-orange-500 focus:border-orange-500 transition-all duration-200 bg-white/80 backdrop-blur-sm"
+                    placeholder="your@email.com"
+                    required
+                  />
+                </div>
+              </div>
+              <div className="grid md:grid-cols-2 gap-6">
+                <div>
+                  <label className="block text-sm font-semibold text-gray-700 mb-2">Phone</label>
+                  <input 
+                    type="tel"
+                    name="phone"
+                    value={formData.phone}
+                    onChange={handleFirstStepChange}
+                    className="w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:ring-2 focus:ring-orange-500 focus:border-orange-500 transition-all duration-200 bg-white/80 backdrop-blur-sm"
+                    placeholder="Your phone"
+                  />
+                </div>
+                <div>
+                  <label className="block text-sm font-semibold text-gray-700 mb-2">Best Time to Call</label>
+                  <select
+                    name="preferred_time"
+                    className="w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:ring-2 focus:ring-orange-500 focus:border-orange-500 transition-all duration-200 bg-white/80 backdrop-blur-sm"
+                    required
+                  >
+                    <option value="">Select a time</option>
+                    <option value="morning">Morning (9AM - 12PM)</option>
+                    <option value="afternoon">Afternoon (12PM - 4PM)</option>
+                    <option value="evening">Evening (4PM - 6PM)</option>
+                  </select>
+                </div>
+              </div>
+              <div>
+                <label className="block text-sm font-semibold text-gray-700 mb-2">Message</label>
+                <textarea 
+                  name="message"
+                  value={formData.message}
+                  onChange={handleFirstStepChange}
+                  className="w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:ring-2 focus:ring-orange-500 focus:border-orange-500 transition-all duration-200 h-32 resize-none bg-white/80 backdrop-blur-sm"
+                  placeholder="Tell us about your current challenges"
+                  required
+                ></textarea>
+              </div>
+              <button 
+                type="submit"
+                className="w-full bg-gradient-to-r from-orange-500 to-orange-400 text-white px-8 py-4 rounded-xl text-lg font-medium hover:from-orange-600 hover:to-orange-500 transition-all transform hover:scale-105 shadow-lg flex items-center justify-center gap-2"
+              >
+                Schedule Consultation
+                <ArrowRight className="w-5 h-5 group-hover:translate-x-2 transition-transform" />
+              </button>
+            </form>
           </div>
         </div>
       </section>

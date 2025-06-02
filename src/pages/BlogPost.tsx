@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Link, useParams } from 'react-router-dom';
 import { Logo } from '../Logo';
-import { Menu, X, ArrowLeft, Mail, Phone, ChevronRight } from 'lucide-react';
+import { Menu, X, ArrowLeft, Mail, Phone, ChevronRight, CheckCircle } from 'lucide-react';
 import { blogPosts } from './Blog'; // We'll need to export blogPosts from Blog.tsx
 
 function BlogPost() {
