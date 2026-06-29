@@ -1,0 +1,20 @@
+{
+  "name": "retell-calendar-webhook",
+  "version": "1.0.0",
+  "description": "Retell AI webhook server – Google Calendar availability + booking",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "nodemon server.js",
+    "setup-oauth": "node oauth-setup.js"
+  },
+  "dependencies": {
+    "dotenv": "^16.4.5",
+    "express": "^4.19.2",
+    "googleapis": "^140.0.1",
+    "luxon": "^3.5.0"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.4"
+  }
+}

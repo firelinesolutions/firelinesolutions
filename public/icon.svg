@@ -1,0 +1,14 @@
+<svg viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
+  <rect width="32" height="32" rx="6" fill="#0b0f14"/>
+  <text
+    x="16"
+    y="23"
+    text-anchor="middle"
+    font-family="Arial Black, Arial, sans-serif"
+    font-weight="900"
+    font-size="18"
+    fill="#f05a28"
+  >
+    FS
+  </text>
+</svg>

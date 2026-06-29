@@ -1,0 +1,56 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    -webkit-text-size-adjust: 100%;
+  }
+
+  body {
+    @apply min-h-dvh overflow-x-hidden bg-slate-950 text-slate-100 antialiased;
+  }
+
+  img {
+    max-width: 100%;
+    height: auto;
+  }
+
+  /* Prevents iOS zoom on input focus */
+  input,
+  select,
+  textarea {
+    font-size: 16px;
+  }
+
+  @media (min-width: 768px) {
+    input,
+    select,
+    textarea {
+      font-size: inherit;
+    }
+  }
+
+  ::selection {
+    @apply bg-fire-500/30 text-white;
+  }
+}
+
+@layer utilities {
+  .text-gradient {
+    @apply bg-gradient-to-r from-fire-400 via-fire-300 to-amber-200 bg-clip-text text-transparent;
+  }
+
+  .safe-bottom {
+    padding-bottom: env(safe-area-inset-bottom, 0px);
+  }
+
+  .safe-top {
+    padding-top: env(safe-area-inset-top, 0px);
+  }
+
+  .touch-manipulation {
+    touch-action: manipulation;
+  }
+}
