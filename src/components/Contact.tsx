@@ -164,9 +164,6 @@ export function Contact() {
                   className="mt-1.5 w-full rounded-lg border border-white/10 bg-slate-950 px-4 py-2.5 text-white placeholder-slate-500 outline-none transition-colors focus:border-fire-500/50 focus:ring-1 focus:ring-fire-500/50"
                   placeholder="(555) 123-4567"
                 />
-                <p className="mt-1.5 text-xs text-slate-500">
-                  Optional — so Damien can reach you directly when he follows up.
-                </p>
               </div>
 
               <div>
