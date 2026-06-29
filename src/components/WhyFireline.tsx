@@ -7,7 +7,8 @@ export function WhyFireline() {
             Why Fireline
           </p>
           <h2 className="mt-3 font-display text-2xl font-bold text-white sm:text-3xl md:text-4xl">
-            Built by someone who understands operational pressure.
+            Built by people who understand what it means to perform under
+            pressure.
           </h2>
 
           <div className="mt-6 flex flex-wrap gap-2 sm:mt-8">
@@ -23,10 +24,10 @@ export function WhyFireline() {
             <p>
               Fireline Solutions was founded on a simple belief: skilled
               professionals shouldn&apos;t burn out doing work a system can
-              handle. As a first responder, our founder has spent years making
-              clear decisions under pressure — and that same discipline shapes
-              how we build: reliable systems, no wasted motion, built for the
-              real world.
+              handle. As a first responder-owned and operated company, we bring
+              years of making clear decisions under pressure — and that same
+              discipline shapes how we build: reliable systems, no wasted
+              motion, built for the real world.
             </p>
             <p>
               We&apos;re not a faceless software platform or an overseas dev

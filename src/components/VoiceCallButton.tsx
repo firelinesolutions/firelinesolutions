@@ -104,8 +104,8 @@ export function VoiceCallButton() {
               </a>
 
               <p className="max-w-xs text-xs leading-relaxed text-slate-500">
-                Prefer email? Use the contact form on this page and Damien will
-                follow up personally.
+                Prefer email? Use the contact form on this page and our team
+                will follow up within 1–2 business days.
               </p>
             </div>
           </div>
