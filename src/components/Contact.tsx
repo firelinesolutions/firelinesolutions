@@ -102,8 +102,7 @@ export function Contact() {
               </h3>
               <p className="mt-2 text-slate-400">
                 We received your request and sent a confirmation to your email.
-                Damien will personally reach out within one business day to
-                schedule your free workflow audit.
+                Someone from our team will reach out within 1–2 business days.
               </p>
             </div>
           ) : (

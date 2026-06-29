@@ -42,7 +42,7 @@ export function buildTemplateAutoReply(name: string, message?: string) {
 
 Thank you for reaching out to Fireline Solutions Agency. ${topic}
 
-Damien will personally follow up within one business day to schedule your free 30-minute workflow audit.
+Someone from our team will reach out within 1–2 business days to schedule your free 30-minute workflow audit.
 
 Best,
 The Fireline Solutions Agency Team`;

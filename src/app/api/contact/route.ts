@@ -88,7 +88,7 @@ export async function POST(request: Request) {
             { role: "system", content: AUTO_REPLY_PROMPT },
             {
               role: "user",
-              content: `Write a follow-up email to ${name} (${email}). Their message: "${message || "They requested a workflow audit."}" Preferred call time: ${timeLabel}. Say Damien will personally follow up within one business day to schedule their free audit. Do not mention automated or AI phone calls.`,
+              content: `Write a follow-up email to ${name} (${email}). Their message: "${message || "They requested a workflow audit."}" Preferred call time: ${timeLabel}. Say someone from the team will reach out within 1-2 business days to schedule their free audit. Do not mention automated or AI phone calls.`,
             },
           ],
           temperature: 0.7,
